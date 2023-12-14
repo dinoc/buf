@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package mypackage;
+
+service AppService {
+  rpc GetCurrentUser (Empty) returns (CurrentUser) {}
+  rpc UpsertUser (CurrentUser) returns (CurrentUser) {}
+}
+
+message Empty {}
+
+message CurrentUser {
+  string id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  repeated Role roles = 4;
+}
+
+message Role {
+  string id = 1;
+  string name = 2;
+}
